@@ -9,6 +9,7 @@ import { SeriesItemsIndexesRange, TimedValue } from '../model/time-data';
 
 import { ScaledRenderer } from './scaled-renderer';
 import { drawArrow, hitTestArrow } from './series-markers-arrow';
+import { drawCaret, hitTestCaret } from './series-markers-caret';
 import { drawCircle, hitTestCircle } from './series-markers-circle';
 import { drawSquare, hitTestSquare } from './series-markers-square';
 import { drawText, hitTestText } from './series-markers-text';
@@ -114,6 +115,12 @@ function drawShape(item: SeriesMarkerRendererDataItem, ctx: CanvasRenderingConte
 		case 'arrowUp':
 			drawArrow(true, ctx, item.x, item.y, item.size);
 			return;
+		case 'caretDown':
+			drawCaret(false, ctx, item.x, item.y, item.size);
+			return;
+		case 'caretUp':
+			drawCaret(true, ctx, item.x, item.y, item.size);
+			return;
 		case 'circle':
 			drawCircle(ctx, item.x, item.y, item.size);
 			return;
@@ -143,6 +150,10 @@ function hitTestShape(item: SeriesMarkerRendererDataItem, x: Coordinate, y: Coor
 			return hitTestArrow(true, item.x, item.y, item.size, x, y);
 		case 'arrowUp':
 			return hitTestArrow(false, item.x, item.y, item.size, x, y);
+		case 'caretDown':
+			return hitTestCaret(true, item.x, item.y, item.size, x, y);
+		case 'caretUp':
+			return hitTestCaret(false, item.x, item.y, item.size, x, y);
 		case 'circle':
 			return hitTestCircle(item.x, item.y, item.size, x, y);
 		case 'square':

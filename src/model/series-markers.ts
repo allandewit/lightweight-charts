@@ -1,12 +1,12 @@
 /**
  * Represents the position of a series marker relative to a bar.
  */
-export type SeriesMarkerPosition = 'aboveBar' | 'belowBar' | 'inBar';
+export type SeriesMarkerPosition = 'aboveBar' | 'belowBar' | 'inBar' | 'onPrice';
 
 /**
  * Represents the shape of a series marker.
  */
-export type SeriesMarkerShape = 'circle' | 'square' | 'arrowUp' | 'arrowDown';
+export type SeriesMarkerShape = 'circle' | 'square' | 'arrowUp' | 'arrowDown' | 'caretUp' | 'caretDown';
 
 /**
  * Represents a series marker.
@@ -16,6 +16,10 @@ export interface SeriesMarker<TimeType> {
 	 * The time of the marker.
 	 */
 	time: TimeType;
+	/**
+	 * The price of the marker.
+	 */
+	price: number;
 	/**
 	 * The position of the marker.
 	 */

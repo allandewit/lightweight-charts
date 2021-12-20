@@ -578,6 +578,7 @@ export class Series<T extends SeriesType = SeriesType> extends PriceDataSource i
 			const seriesDataIndex = ensureNotNull(this._data.search(timePointIndex, searchMode)).index;
 			return {
 				time: seriesDataIndex,
+				price: marker.price,
 				position: marker.position,
 				shape: marker.shape,
 				color: marker.color,

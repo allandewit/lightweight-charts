@@ -17,6 +17,8 @@ export function shapeSize(shape: SeriesMarkerShape, originalSize: number): numbe
 	switch (shape) {
 		case 'arrowDown':
 		case 'arrowUp':
+		case 'caretDown':
+		case 'caretUp':
 			return size(originalSize, 1);
 		case 'circle':
 			return size(originalSize, 0.8);
